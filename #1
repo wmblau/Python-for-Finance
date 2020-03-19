@@ -7,3 +7,309 @@ print("Investment 1 will yield a total of $" + str(round(investment_1, 2)) + " i
 # Calculate investment_2
 investment_1_discounted = np.pv(rate=0.03, nper=10, pmt=0, fv=investment_1)
 print("After adjusting for inflation, investment 1 is worth $" + str(round(-investment_1_discounted, 2)) + " in today's dollars")
+
+# Write a function that will return the maximum value of two numbers.
+
+
+# determine max value - using a fall through approach
+def maxvalue1(a,b):
+    if a > b:
+        return a
+    return b
+
+# dtermine max value using if - else
+def maxvalue2(a,b):
+    if a > b:
+        return a
+    else:
+        return b
+
+# determine max value using ternary statement
+def maxvalue3(a,b):
+    return a if a > b else b
+
+def maxvalue4(a,b):
+    return max(a,b)
+
+
+a=100
+b=200
+
+print("The maximum value is: ", maxvalue1(a,b))
+print("The maximum value is: ", maxvalue2(a,b))
+print("The maximum value is: ", maxvalue3(a,b))
+print("The maximum value is: ", maxvalue4(a,b))
+ 29  Python_for_Finance/Problem3.py 
+@@ -0,0 +1,29 @@
+# Write a program that will sum up numbers between 1 and 100 and print the answer.
+# Please use some form of loop (iteration) to complete this assignment.
+# Remember there is more than one way of iterating in Python. There is the for statement and the while statement.
+
+t=0
+for x in range(101):
+    t+=x
+print(x)
+print(t)
+
+t=0
+i=1
+while i <= 100:
+    t=t+i
+    i=i+1
+print(x)
+print(t)
+
+t=0
+i=1
+while 1:
+    t=t+i
+    i+=1
+    if i > 100:
+        break
+print(x)
+print(t)
+
+print(sum(range(101)))
+ 46  Python_for_Finance/Problem3timed.py 
+@@ -0,0 +1,46 @@
+# Write a program that will sum up numbers between 1 and 100 and print the answer.
+# Please use some form of loop (iteration) to complete this assignment.
+# Remember there is more than one way of iterating in Python. There is the for statement and the while statement.
+
+# pip install ttictoc
+
+from ttictoc import TicToc
+
+def sum1():
+    t=0
+    for x in range(101):
+        t+=x
+    return(t)
+
+def sum2():
+    t=0
+    i=1
+    while i <= 100:
+        t=t+i
+        i=i+1
+    return(t)
+
+def sum3():
+    t=0
+    i=1
+    while 1:
+        t+=i
+        i+=1
+        if i > 100:
+            break
+    return(t)
+
+def sum4():
+    return(sum(range(101)))
+
+with TicToc("sum1"):
+    sum1()
+
+with TicToc("sum2"):
+    sum2()
+
+with TicToc("sum3"):
+    sum3()
+
+with TicToc("sum4"):
+    sum4()
+ 45  Python_for_Finance/Problem3timed2.py 
+@@ -0,0 +1,45 @@
+# Write a program that will sum up numbers between 1 and 100 and print the answer.
+# Please use some form of loop (iteration) to complete this assignment.
+# Remember there is more than one way of iterating in Python. There is the for statement and the while statement.
+
+# pip install ttictoc
+
+from ttictoc import TicToc
+
+def sum1(a):
+    t=0
+    for x in range(a+1):
+        t+=x
+    return(t)
+
+def sum2(a):
+    t=0
+    i=1
+    while i <= a:
+        t=t+i
+        i=i+1
+    return(t)
+
+def sum3(a):
+    t=0
+    i=1
+    while 1:
+        t+=i
+        i+=1
+        if i > a:
+            break
+    return(t)
+
+def sum4(a):
+    return(sum(range(a+1)))
+
+for test_value in [100,500,1000,5000]:
+    print("Summation test value: ",test_value)
+    with TicToc("sum1"):
+        sum1(test_value)
+    with TicToc("sum2"):
+        sum2(test_value)
+    with TicToc("sum3"):
+        sum3(test_value)
+    with TicToc("sum4"):
+        sum4(test_value)
+ 36  Python_for_Finance/Problem4.py 
+@@ -0,0 +1,36 @@
+# Write a program that will sum up numbers between 1 and 100 and print the answer.
+# Please use some form of loop (iteration) to complete this assignment.
+# Remember there is more than one way of iterating in Python. There is the for statement and the while statement.
+
+t=0
+for x in range(101):
+    if not(x % 2):
+        t+=x
+print(x)
+print(t)
+
+t=0
+for x in range(2,101,2):
+    t+=x
+print(x)
+print(t)
+
+t=0
+i=2
+while i <= 100:
+    t+=i
+    i+=2
+print(x)
+print(t)
+
+t=0
+i=2
+while True:
+    t+=i
+    i+=2
+    if i > 100:
+        break
+print(x)
+print(t)
+
+print(sum(range(2,101,2)))
+ 44  Python_for_Finance/Problem5timed.py 
+@@ -0,0 +1,44 @@
+# Write a program that will sum up numbers between 1 and 100 and print the answer.
+# Please use some form of loop (iteration) to complete this assignment.
+# Remember there is more than one way of iterating in Python. There is the for statement and the while statement.
+
+# pip install ttictoc
+
+from ttictoc import TicToc
+
+def sum1(a,b):
+    t=0
+    for x in range(a,b+1):
+        t+=x
+    return(t)
+
+def sum2(a,b):
+    t=0
+    i=a
+    while i <= b:
+        t=t+i
+        i=i+1
+    return(t)
+
+def sum3(a,b):
+    t=0
+    i=a
+    while 1:
+        t+=i
+        i+=1
+        if i > b:
+            break
+    return(t)
+
+def sum4(a,b):
+    return(sum(range(a,b+1)))
+
+
+with TicToc("sum1"):
+    print(sum1(25,200))    
+with TicToc("sum2"):
+    print(sum2(25,200))
+with TicToc("sum3"):
+    print(sum3(25,200))
+with TicToc("sum4"):
+    print(sum4(25,200))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
